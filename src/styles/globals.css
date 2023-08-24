@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  background-color: theme("colors.offwhite");
+}
+
+@layer components {
+  .keybinding {
+    @apply flex select-none rounded-sm bg-secondary px-2 text-sm leading-7 text-neutral-600 shadow-inner;
+  }
+}
