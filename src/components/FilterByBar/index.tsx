@@ -9,6 +9,7 @@ import {
 import { useRef, useState } from "react";
 import { FilterItem } from "./FilterItem";
 import { FilterItemSkeleton } from "./FilterItemSkeleton";
+import { FilterSocialList } from "./SocialFilters.tsx/List";
 
 const filterItems = [
   {
@@ -109,18 +110,15 @@ export const FilterByBar = () => {
               />
             ))}
       </ol>
-      <ol className="mb-5 border-b border-borderColor pb-6">
+      <FilterSocialList />
+      {/* <ol className="mb-5 border-b border-borderColor pb-6">
         <h2 className="pb-2 pl-2 text-xs font-semibold text-neutral-700">
           Websites
         </h2>
         {loading
           ? // Render skeleton items while loading
             filterBySiteItems.map((item) => (
-              <FilterItemSkeleton
-                Icon={item.Icon}
-                title={item.title}
-                key={item.title}
-              />
+              <SocialFilters key={item.title} title={item.title} />
             ))
           : // Render actual items when loading is done
             filterBySiteItems.map((item) => (
@@ -132,7 +130,7 @@ export const FilterByBar = () => {
                 link={""}
               />
             ))}
-      </ol>
+      </ol> */}
       <ol className="border-b border-borderColor pb-6">
         <h2 className="pb-2 pl-2 text-xs font-semibold text-neutral-700">
           Advanced
