@@ -1,36 +1,8 @@
 import { type NextPage } from "next";
-import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
 import { FloatingBanner } from "./FloatingBanner";
 import { SearchWithButton } from "./SearchWithButton";
 
 export const Home: NextPage = () => {
-  const router = useRouter();
-  const [searchQuery, setSearchQuery] = useState("");
-
-  function handleSearch() {
-    router.push(`/search?q=${encodeURIComponent(searchQuery)}`);
-  }
-
-  function submitOnEnter(event: { key: string }) {
-    // If there isn't a search query, don't do anything
-    if (searchQuery === "") {
-      return;
-    }
-
-    // If the user presses enter, submit the search query
-    if (event.key === "Enter") {
-      handleSearch();
-    }
-  }
-
-  useEffect(() => {
-    document.addEventListener("keydown", submitOnEnter);
-    return () => {
-      document.removeEventListener("keydown", submitOnEnter);
-    };
-  });
-
   return (
     <div className="flex min-h-screen flex-col">
       <div className="relative m-3">

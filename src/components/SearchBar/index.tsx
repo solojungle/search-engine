@@ -1,5 +1,11 @@
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
-import { useCallback, useEffect, useRef, useState } from "react";
+import {
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+  type HTMLProps,
+} from "react";
 
 type SearchBarProps = {
   searchTerm: string;
@@ -9,7 +15,8 @@ type SearchBarProps = {
 export const SearchBar = ({
   searchTerm = "",
   setSearchTerm,
-}: SearchBarProps) => {
+  ...props
+}: SearchBarProps & HTMLProps<HTMLInputElement>) => {
   const inputReference = useRef<HTMLInputElement>(null);
   const [isFocused, setIsFocused] = useState(false);
 
@@ -21,7 +28,7 @@ export const SearchBar = ({
         }
       }
     },
-    [searchTerm.length]
+    [searchTerm.length, setSearchTerm]
   );
 
   useEffect(() => {
@@ -64,6 +71,7 @@ export const SearchBar = ({
         name="search"
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
+        {...props}
       ></input>
     </div>
   );
