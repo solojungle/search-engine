@@ -66,7 +66,7 @@ export const SearchBar = ({
         ref={inputReference}
         onBlur={() => setIsFocused(false)}
         className="text-md h-10 w-full rounded-l-lg border border-borderColor bg-transparent pl-9 placeholder:text-textSecondary focus:border-borderFocus focus:outline-none focus:ring-0"
-        placeholder={`Type '/' to search...`}
+        placeholder={`Type '/' to focus the search bar...`}
         type="text"
         name="search"
         value={searchTerm}
