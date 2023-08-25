@@ -1,16 +1,191 @@
-import { FilterByBar } from "components/components/FilterByBar";
+import { FilterByBar } from "components/components/FilterSideBar";
+import { Results } from "components/components/Results";
 import { SearchWithButton } from "components/components/SearchWithButton";
-import { VideoGridSkeleton } from "components/components/VideoResultSkeleton/Grid";
 import { type NextPage } from "next";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { useState } from "react";
 
+const mockData = {
+  responseTime: 392,
+  counts: {
+    types: {
+      all: 100,
+      video: 50,
+      gifs: 20,
+      transcripts: 10,
+      images: 20,
+    },
+    sites: {
+      all: 100,
+      youtube: 50,
+      vimeo: 0,
+      tiktok: 10,
+      instagram: 20,
+    },
+  },
+  results: [
+    {
+      url: "https://www.youtube.com/watch?v=9XaS93WMRQQ",
+      title: "The Best of Bach",
+      description:
+        'Subscribe for more classical music: http://bit.ly/YouTubeHalidonMusic Listen to our playlist "Baroque Music" on Spotify: http://spoti.fi/2hzrJXo Like us on ...',
+      thumbnail: "https://i.ytimg.com/vi/jNQXAC9IVRw/maxresdefault.jpg",
+      duration: "1:51:21",
+      views: "12M",
+      uploaded: "2 years ago",
+      relatedTags: [
+        "classical music",
+        "classical",
+        "bach",
+        "baroque",
+        "baroque music",
+      ],
+    },
+    {
+      url: "https://www.youtube.com/watch?v=9XaS93WMRQQ",
+      title: "The Best of Bach",
+      description:
+        'Subscribe for more classical music: http://bit.ly/YouTubeHalidonMusic Listen to our playlist "Baroque Music" on Spotify: http://spoti.fi/2hzrJXo Like us on ...',
+      thumbnail: "https://i.ytimg.com/vi/jNQXAC9IVRw/maxresdefault.jpg",
+      duration: "1:51:21",
+      views: "12M",
+      uploaded: "2 years ago",
+      relatedTags: [
+        "classical music",
+        "classical",
+        "bach",
+        "baroque",
+        "baroque music",
+      ],
+    },
+    {
+      url: "https://www.youtube.com/watch?v=9XaS93WMRQQ",
+      title: "The Best of Bach",
+      description:
+        'Subscribe for more classical music: http://bit.ly/YouTubeHalidonMusic Listen to our playlist "Baroque Music" on Spotify: http://spoti.fi/2hzrJXo Like us on ...',
+      thumbnail: "https://i.ytimg.com/vi/jNQXAC9IVRw/maxresdefault.jpg",
+      duration: "1:51:21",
+      views: "12M",
+      uploaded: "2 years ago",
+      relatedTags: [
+        "classical music",
+        "classical",
+        "bach",
+        "baroque",
+        "baroque music",
+      ],
+    },
+    {
+      url: "https://www.youtube.com/watch?v=9XaS93WMRQQ",
+      title: "The Best of Bach",
+      description:
+        'Subscribe for more classical music: http://bit.ly/YouTubeHalidonMusic Listen to our playlist "Baroque Music" on Spotify: http://spoti.fi/2hzrJXo Like us on ...',
+      thumbnail: "https://i.ytimg.com/vi/jNQXAC9IVRw/maxresdefault.jpg",
+      duration: "1:51:21",
+      views: "12M",
+      uploaded: "2 years ago",
+      relatedTags: [
+        "classical music",
+        "classical",
+        "bach",
+        "baroque",
+        "baroque music",
+      ],
+    },
+    {
+      url: "https://www.youtube.com/watch?v=9XaS93WMRQQ",
+      title: "The Best of Bach",
+      description:
+        'Subscribe for more classical music: http://bit.ly/YouTubeHalidonMusic Listen to our playlist "Baroque Music" on Spotify: http://spoti.fi/2hzrJXo Like us on ...',
+      thumbnail: "https://i.ytimg.com/vi/jNQXAC9IVRw/maxresdefault.jpg",
+      duration: "1:51:21",
+      views: "12M",
+      uploaded: "2 years ago",
+      relatedTags: [
+        "classical music",
+        "classical",
+        "bach",
+        "baroque",
+        "baroque music",
+      ],
+    },
+    {
+      url: "https://www.youtube.com/watch?v=9XaS93WMRQQ",
+      title: "The Best of Bach",
+      description:
+        'Subscribe for more classical music: http://bit.ly/YouTubeHalidonMusic Listen to our playlist "Baroque Music" on Spotify: http://spoti.fi/2hzrJXo Like us on ...',
+      thumbnail: "https://i.ytimg.com/vi/jNQXAC9IVRw/maxresdefault.jpg",
+      duration: "1:51:21",
+      views: "12M",
+      uploaded: "2 years ago",
+      relatedTags: [
+        "classical music",
+        "classical",
+        "bach",
+        "baroque",
+        "baroque music",
+      ],
+    },
+    {
+      url: "https://www.youtube.com/watch?v=9XaS93WMRQQ",
+      title: "The Best of Bach",
+      description:
+        'Subscribe for more classical music: http://bit.ly/YouTubeHalidonMusic Listen to our playlist "Baroque Music" on Spotify: http://spoti.fi/2hzrJXo Like us on ...',
+      thumbnail: "https://i.ytimg.com/vi/jNQXAC9IVRw/maxresdefault.jpg",
+      duration: "1:51:21",
+      views: "12M",
+      uploaded: "2 years ago",
+      relatedTags: [
+        "classical music",
+        "classical",
+        "bach",
+        "baroque",
+        "baroque music",
+      ],
+    },
+    {
+      url: "https://www.youtube.com/watch?v=9XaS93WMRQQ",
+      title: "The Best of Bach",
+      description:
+        'Subscribe for more classical music: http://bit.ly/YouTubeHalidonMusic Listen to our playlist "Baroque Music" on Spotify: http://spoti.fi/2hzrJXo Like us on ...',
+      thumbnail: "https://i.ytimg.com/vi/jNQXAC9IVRw/maxresdefault.jpg",
+      duration: "1:51:21",
+      views: "12M",
+      uploaded: "2 years ago",
+      relatedTags: [
+        "classical music",
+        "classical",
+        "bach",
+        "baroque",
+        "baroque music",
+      ],
+    },
+    {
+      url: "https://www.youtube.com/watch?v=9XaS93WMRQQ",
+      title: "The Best of Bach",
+      description:
+        'Subscribe for more classical music: http://bit.ly/YouTubeHalidonMusic Listen to our playlist "Baroque Music" on Spotify: http://spoti.fi/2hzrJXo Like us on ...',
+      thumbnail: "https://i.ytimg.com/vi/jNQXAC9IVRw/maxresdefault.jpg",
+      duration: "1:51:21",
+      views: "12M",
+      uploaded: "2 years ago",
+      relatedTags: [
+        "classical music",
+        "classical",
+        "bach",
+        "baroque",
+        "baroque music",
+      ],
+    },
+  ],
+};
+
 const Search: NextPage = () => {
   const router = useRouter();
   const { q } = router.query;
 
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   const qString = Array.isArray(q) ? q[0] : q;
   const truncatedQ =
@@ -44,8 +219,13 @@ const Search: NextPage = () => {
           <SearchWithButton query={q as string} />
         </div>
         <div className="flex border-t border-neutral-200">
-          <FilterByBar />
-          <div className="w-full">{loading && <VideoGridSkeleton />}</div>
+          <FilterByBar counts={mockData.counts} loading={loading} />
+          <Results
+            loading={false}
+            responseTime={mockData.responseTime}
+            counts={mockData.counts}
+            results={mockData.results}
+          />
         </div>
       </div>
     </>
