@@ -5,7 +5,7 @@ type ResultProps = {
   thumbnail: string;
 };
 
-export const Result = (props: ResultProps) => {
+export const Item = (props: ResultProps) => {
   const { title, description, url, thumbnail } = props;
 
   return (

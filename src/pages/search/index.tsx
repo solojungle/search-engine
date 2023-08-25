@@ -185,7 +185,7 @@ const Search: NextPage = () => {
   const router = useRouter();
   const { q } = router.query;
 
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const qString = Array.isArray(q) ? q[0] : q;
   const truncatedQ =

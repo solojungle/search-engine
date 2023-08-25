@@ -1,3 +1,9 @@
+export type SearchData = {
+  responseTime: string;
+  results: SearchResults[];
+  counts: SearchCounts;
+};
+
 export type SearchResults = {
   url: string;
   title: string;
