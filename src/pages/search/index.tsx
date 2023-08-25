@@ -185,7 +185,7 @@ const Search: NextPage = () => {
   const router = useRouter();
   const { q } = router.query;
 
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const qString = Array.isArray(q) ? q[0] : q;
   const truncatedQ =
@@ -221,7 +221,7 @@ const Search: NextPage = () => {
         <div className="flex border-t border-neutral-200">
           <FilterByBar counts={mockData.counts} loading={loading} />
           <Results
-            loading={false}
+            loading={loading}
             responseTime={mockData.responseTime}
             counts={mockData.counts}
             results={mockData.results}
