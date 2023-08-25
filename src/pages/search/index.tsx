@@ -1,6 +1,6 @@
 import { FilterByBar } from "components/components/FilterSideBar";
 import { Results } from "components/components/Results";
-import { SearchWithButton } from "components/components/SearchWithButton";
+import { SearchWithButton } from "components/components/Search/SearchWithButton";
 import { type NextPage } from "next";
 import Head from "next/head";
 import { useRouter } from "next/router";
@@ -185,7 +185,7 @@ const Search: NextPage = () => {
   const router = useRouter();
   const { q } = router.query;
 
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   const qString = Array.isArray(q) ? q[0] : q;
   const truncatedQ =
