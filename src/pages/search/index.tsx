@@ -1,5 +1,5 @@
 import { FilterByBar } from "components/components/FilterSideBar";
-import { MetaHeader } from "components/components/Head";
+import { Heading } from "components/components/Heading";
 import { Results } from "components/components/Results";
 import { SearchWithButton } from "components/components/Search/SearchWithButton";
 import { type NextPage } from "next";
@@ -199,7 +199,7 @@ const Search: NextPage = () => {
 
   return (
     <>
-      <MetaHeader title={headTitleWithSiteName} />
+      <Heading title={headTitleWithSiteName} />
       <div className="p-5">
         <div className="mb-5 flex w-full items-center">
           <a className="ml-2 mr-8 font-bold" href="https://aliawari.com">
