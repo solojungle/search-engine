@@ -8,6 +8,7 @@ export default {
     extend: {
       colors: {
         offwhite: "#faf9f6",
+        lotion: "#fbfcfd",
         primary: colors.black,
         secondary: colors.neutral[300],
         primaryHighlight: colors.orange[400],
