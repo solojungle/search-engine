@@ -1,10 +1,11 @@
 import { FilterByBar } from "components/components/FilterSideBar";
 import { Heading } from "components/components/Heading";
+import { Pagination } from "components/components/Pagination";
 import { Results } from "components/components/Results";
 import { SearchWithButton } from "components/components/Search/SearchWithButton";
 import { type NextPage } from "next";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useState, type SetStateAction } from "react";
 
 const mockData = {
   responseTime: 392,
@@ -187,6 +188,15 @@ const Search: NextPage = () => {
 
   const [loading, setLoading] = useState(true);
 
+  const [currentPage, setCurrentPage] = useState(1);
+  const perPage = 10; // You can adjust this according to your needs
+  const totalResults = 97; // Your total result count
+
+  const handlePageChange = (page: SetStateAction<number>) => {
+    setCurrentPage(page);
+    // You can implement fetching data for the new page here
+  };
+
   const qString = Array.isArray(q) ? q[0] : q;
   const truncatedQ =
     qString && qString.toString().length > 20
@@ -209,12 +219,21 @@ const Search: NextPage = () => {
         </div>
         <div className="flex border-t border-neutral-200">
           <FilterByBar counts={mockData.counts} loading={loading} />
+          <div className="flex flex-col w-full">
           <Results
             loading={loading}
             responseTime={mockData.responseTime}
             counts={mockData.counts}
             results={mockData.results}
           />
+          <Pagination
+              loading={loading}
+              currentPage={currentPage}
+              perPage={perPage}
+              totalResults={totalResults}
+              onPageChange={handlePageChange}
+          />
+          </div>
         </div>
       </div>
     </>
