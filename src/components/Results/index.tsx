@@ -13,7 +13,7 @@ export const Results = (props: ResultsProps) => {
   const { results, counts, responseTime, loading } = props;
 
   return (
-    <div className="w-full max-w-7xl">
+    <div className="mb-4 w-full max-w-7xl pb-8">
       {loading ? (
         <Skeleton />
       ) : (

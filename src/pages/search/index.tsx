@@ -190,7 +190,7 @@ const Search: NextPage = () => {
 
   const [currentPage, setCurrentPage] = useState(1);
   const perPage = 10; // You can adjust this according to your needs
-  const totalResults = 97; // Your total result count
+  const totalResults = mockData.counts.types.all; // Your total result count
 
   const handlePageChange = (page: SetStateAction<number>) => {
     setCurrentPage(page);
@@ -219,20 +219,20 @@ const Search: NextPage = () => {
         </div>
         <div className="flex border-t border-neutral-200">
           <FilterByBar counts={mockData.counts} loading={loading} />
-          <div className="flex flex-col w-full">
-          <Results
-            loading={loading}
-            responseTime={mockData.responseTime}
-            counts={mockData.counts}
-            results={mockData.results}
-          />
-          <Pagination
+          <div className="flex w-full flex-col">
+            <Results
+              loading={loading}
+              responseTime={mockData.responseTime}
+              counts={mockData.counts}
+              results={mockData.results}
+            />
+            <Pagination
               loading={loading}
               currentPage={currentPage}
               perPage={perPage}
               totalResults={totalResults}
               onPageChange={handlePageChange}
-          />
+            />
           </div>
         </div>
       </div>

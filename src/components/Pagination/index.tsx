@@ -1,25 +1,23 @@
+import { ArrowLeftIcon, ArrowRightIcon } from "@heroicons/react/24/outline";
+
 type PaginationProps = {
-    loading: boolean;
-    currentPage: number;
-    perPage: number;
-    totalResults: number;
-    onPageChange: (page: number) => void;
-}
+  loading: boolean;
+  currentPage: number;
+  perPage: number;
+  totalResults: number;
+  onPageChange: (page: number) => void;
+};
 
 export const Pagination = (props: PaginationProps) => {
   const { loading, currentPage, perPage, totalResults, onPageChange } = props;
   const totalPages = Math.ceil(totalResults / perPage);
 
-    if (loading) {
-      return null;
-    }
+  if (loading) {
+    return null;
+  }
 
-  const renderPaginationInfo = () => {
-    const start = (currentPage - 1) * perPage + 1;
-    const end = Math.min(start + perPage - 1, totalResults);
-
-    return `Showing ${start} to ${end} of ${totalResults} results`;
-  };
+  const start = (currentPage - 1) * perPage + 1;
+  const end = Math.min(start + perPage - 1, totalResults);
 
   const renderPageNumbers = () => {
     const pages = [];
@@ -27,9 +25,9 @@ export const Pagination = (props: PaginationProps) => {
       pages.push(
         <li
           key={i}
-          onClick={() => onPageChange(i)}
-          className={`cursor-pointer ${
-            i === currentPage ? 'font-bold' : ''
+          onClick={() => handlePageChange(i)}
+          className={`flex h-10 w-10 cursor-pointer items-center justify-center rounded-md ${
+            i === currentPage ? "bg-primary font-bold text-textInverse" : ""
           }`}
         >
           {i}
@@ -39,12 +37,36 @@ export const Pagination = (props: PaginationProps) => {
     return pages;
   };
 
+  function handlePageChange(page: number) {
+    if (page < 1 || page > totalPages) {
+      return;
+    }
+
+    onPageChange(page);
+  }
+
   return (
-    <div className="flex items-center justify-between mt-8">
-      <p className="text-gray-600">{renderPaginationInfo()}</p>
-      <ul className="flex space-x-2">
-        {renderPageNumbers()}
-      </ul>
+    <div className="flex items-center justify-between border-t border-borderColor pt-4">
+      <p className="text-sm text-textSecondary">
+        Showing <span className="font-medium">{start}</span> to{" "}
+        <span className="font-medium">{end}</span> of{" "}
+        <span className="font-medium">{totalResults}</span>
+      </p>
+      <div className="flex items-center justify-center">
+        <button
+          className="flex h-10 w-16 cursor-pointer items-center justify-center rounded-md"
+          onClick={() => handlePageChange(currentPage - 1)}
+        >
+          <ArrowLeftIcon className="h-5 w-5" />
+        </button>
+        <ul className="flex">{renderPageNumbers()}</ul>
+        <button
+          className="flex h-10 w-16 cursor-pointer items-center justify-center rounded-md"
+          onClick={() => handlePageChange(currentPage + 1)}
+        >
+          <ArrowRightIcon className="h-5 w-5" />
+        </button>
+      </div>
     </div>
   );
 };
