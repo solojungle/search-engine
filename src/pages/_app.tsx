@@ -1,15 +1,13 @@
-import { type AppType } from "next/app";
-
-import { api } from "components/utils/api";
-
 import { GoogleAnalytics } from "components/components/GoogleAnalytics";
 import "components/styles/globals.css";
+import { api } from "components/utils/api";
+import { type AppType } from "next/app";
 
 const MyApp: AppType = ({ Component, pageProps }) => {
   return (
     <>
-      <Component {...pageProps} />
       <GoogleAnalytics />
+      <Component {...pageProps} />
     </>
   );
 };
