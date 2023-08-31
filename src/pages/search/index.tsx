@@ -18,7 +18,7 @@ const Search: NextPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [responseTime, setResponseTime] = useState<string>("");
 
-  const perPage = 10;
+  const perPage = 15;
   const totalResults = data?.counts?.types.all || 0;
 
   const handlePageChange = (page: SetStateAction<number>) => {
@@ -33,8 +33,6 @@ const Search: NextPage = () => {
       searchVideos(q as string).then((res) => {
         setData(res);
         // setLoading(false);
-
-        console.log(res);
       });
 
       const endTime = performance.now();
@@ -71,6 +69,8 @@ const Search: NextPage = () => {
               loading={loading}
               responseTime={responseTime}
               data={data}
+              currentPage={currentPage}
+              perPage={perPage}
             />
             <Pagination
               loading={loading}

@@ -6,10 +6,12 @@ type ResultsProps = {
   loading: boolean;
   responseTime: string;
   data?: SearchData;
+  currentPage: number;
+  perPage: number;
 };
 
 export const Results = (props: ResultsProps) => {
-  const { data, responseTime, loading } = props;
+  const { data, responseTime, loading, currentPage, perPage } = props;
 
   if (data?.results && data.results.length === 0) {
     return (
@@ -34,6 +36,8 @@ export const Results = (props: ResultsProps) => {
           results={data.results}
           counts={data.counts}
           responseTime={responseTime}
+          currentPage={currentPage}
+          perPage={perPage}
         />
       )}
     </div>
