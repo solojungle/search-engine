@@ -21,7 +21,21 @@ export const Pagination = (props: PaginationProps) => {
 
   function renderPageNumbers() {
     const pages = [];
-    for (let i = 1; i <= totalPages; i++) {
+    const maxPagesToShow = 10;
+    const halfMaxPages = Math.floor(maxPagesToShow / 2);
+
+    let startPage = Math.max(currentPage - halfMaxPages, 1);
+    let endPage = Math.min(startPage + maxPagesToShow - 1, totalPages);
+
+    if (
+      totalPages > maxPagesToShow &&
+      currentPage > totalPages - halfMaxPages
+    ) {
+      startPage = totalPages - maxPagesToShow + 1;
+      endPage = totalPages;
+    }
+
+    for (let i = startPage; i <= endPage; i++) {
       pages.push(
         <li
           key={i}
@@ -34,6 +48,7 @@ export const Pagination = (props: PaginationProps) => {
         </li>
       );
     }
+
     return pages;
   }
 
