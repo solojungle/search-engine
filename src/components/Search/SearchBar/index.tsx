@@ -25,6 +25,8 @@ export const SearchBar = ({
       if (event.keyCode === 27) {
         if (searchTerm.length > 0) {
           setSearchTerm("");
+          setIsFocused(true);
+          inputReference.current?.focus();
         }
       }
     },
