@@ -1,6 +1,5 @@
 import { GoogleAnalytics } from "components/components/GoogleAnalytics";
 import "components/styles/globals.css";
-import { api } from "components/utils/api";
 import { type AppType } from "next/app";
 
 const MyApp: AppType = ({ Component, pageProps }) => {
@@ -12,4 +11,4 @@ const MyApp: AppType = ({ Component, pageProps }) => {
   );
 };
 
-export default api.withTRPC(MyApp);
+export default MyApp;
