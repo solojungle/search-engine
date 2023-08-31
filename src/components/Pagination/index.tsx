@@ -40,8 +40,10 @@ export const Pagination = (props: PaginationProps) => {
         <li
           key={i}
           onClick={() => handlePageChange(i)}
-          className={`flex h-10 w-10 cursor-pointer items-center justify-center rounded-md ${
-            i === currentPage ? "bg-primary font-bold text-textInverse" : ""
+          className={`flex h-10 w-10 cursor-pointer select-none items-center justify-center rounded-md hover:bg-neutral-200 ${
+            i === currentPage
+              ? "pointer-events-none bg-primary font-bold text-textInverse"
+              : ""
           }`}
         >
           {i}
