@@ -1,25 +1,38 @@
-import { type SearchCounts, type SearchResults } from "components/types";
+import { SearchData } from "components/types";
 import { Skeleton } from "./Skeleton";
 import { VideoResults } from "./Video";
 
 type ResultsProps = {
   loading: boolean;
-  responseTime: number;
-  counts: SearchCounts;
-  results: SearchResults[];
+  responseTime: string;
+  data?: SearchData;
 };
 
 export const Results = (props: ResultsProps) => {
-  const { results, counts, responseTime, loading } = props;
+  const { data, responseTime, loading } = props;
+
+  if (data?.results && data.results.length === 0) {
+    return (
+      <div className="mb-4 flex h-full w-full max-w-7xl items-center justify-center p-16">
+        <div className="flex flex-col items-center justify-center">
+          <h1 className="mb-4 text-2xl font-bold text-gray-800">
+            No search results found
+          </h1>
+          <p className="text-2xl font-bold text-gray-800">/ᐠ｡ꞈ｡ᐟ\</p>
+          <p className="mt-2 text-gray-500">Try searching for something else</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="mb-4 w-full max-w-7xl pb-8">
-      {loading ? (
+      {loading || !data || !data.results || !data.counts ? (
         <Skeleton />
       ) : (
         <VideoResults
-          results={results}
-          counts={counts}
+          results={data.results}
+          counts={data.counts}
           responseTime={responseTime}
         />
       )}

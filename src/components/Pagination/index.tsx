@@ -12,14 +12,14 @@ export const Pagination = (props: PaginationProps) => {
   const { loading, currentPage, perPage, totalResults, onPageChange } = props;
   const totalPages = Math.ceil(totalResults / perPage);
 
-  if (loading) {
+  if (loading || totalResults === 0) {
     return null;
   }
 
   const start = (currentPage - 1) * perPage + 1;
   const end = Math.min(start + perPage - 1, totalResults);
 
-  const renderPageNumbers = () => {
+  function renderPageNumbers() {
     const pages = [];
     for (let i = 1; i <= totalPages; i++) {
       pages.push(
@@ -35,7 +35,7 @@ export const Pagination = (props: PaginationProps) => {
       );
     }
     return pages;
-  };
+  }
 
   function handlePageChange(page: number) {
     if (page < 1 || page > totalPages) {

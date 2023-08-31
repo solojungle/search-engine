@@ -5,11 +5,11 @@ import { Skeleton } from "./Skeleton";
 
 type FileTypeFilterProps = {
   loading: boolean;
-  counts: SearchCounts;
+  sites?: SearchCounts["sites"];
 };
 
 export const WebsiteFilter = (props: FileTypeFilterProps) => {
-  const { loading, counts } = props;
+  const { loading, sites } = props;
 
   return (
     <>
@@ -17,7 +17,7 @@ export const WebsiteFilter = (props: FileTypeFilterProps) => {
         Websites
       </h2>
       <ol className="mb-5 border-b border-borderColor pb-6">
-        {loading ? <Skeleton /> : <Filter counts={counts} />}
+        {loading || !sites ? <Skeleton /> : <Filter sites={sites} />}
       </ol>
     </>
   );

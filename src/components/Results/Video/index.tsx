@@ -4,7 +4,7 @@ import { Item } from "./item";
 type VideoResultsProps = {
   results: SearchResults[];
   counts: SearchCounts;
-  responseTime: number;
+  responseTime: string;
 };
 
 export const VideoResults = (props: VideoResultsProps) => {

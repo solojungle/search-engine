@@ -4,15 +4,15 @@ import { Skeleton } from "./Skeleton";
 
 type FileTypeFilterProps = {
   loading: boolean;
-  counts: SearchCounts;
+  types?: SearchCounts["types"];
 };
 
 export const FileTypeFilter = (props: FileTypeFilterProps) => {
-  const { loading, counts } = props;
+  const { loading, types } = props;
 
   return (
     <ol className="mb-5 border-b border-borderColor pb-6">
-      {loading ? <Skeleton /> : <Filter counts={counts} />}
+      {loading || !types ? <Skeleton /> : <Filter types={types} />}
     </ol>
   );
 };

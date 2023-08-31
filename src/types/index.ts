@@ -1,18 +1,20 @@
 export type SearchData = {
-  responseTime: string;
   results: SearchResults[];
   counts: SearchCounts;
 };
 
 export type SearchResults = {
-  url: string;
   title: string;
   description: string;
   thumbnail: string;
+  author: string;
   duration: string;
-  views: string;
+  type: string;
+  url: string;
+  source: string;
+  transcript: string;
+  tags: string[];
   uploaded: string;
-  relatedTags: string[];
 };
 
 export type SearchCounts = {

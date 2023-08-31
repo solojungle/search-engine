@@ -6,7 +6,7 @@ import { WebsiteFilter } from "./Filters/WebsiteFilter";
 
 type FilterByBarProps = {
   loading: boolean;
-  counts: SearchCounts;
+  counts?: SearchCounts;
 };
 
 export const FilterByBar = (props: FilterByBarProps) => {
@@ -20,8 +20,8 @@ export const FilterByBar = (props: FilterByBarProps) => {
       className="mb-4 mr-5 hidden w-72 flex-shrink-0 border-r border-borderColor pr-2 pt-5 lg:block"
     >
       <h2 className="mb-3 px-2 font-medium">Filter By</h2>
-      <FileTypeFilter loading={loading} counts={counts} />
-      <WebsiteFilter loading={loading} counts={counts} />
+      <FileTypeFilter loading={loading} types={counts?.types} />
+      <WebsiteFilter loading={loading} sites={counts?.sites} />
       <AdvancedOptionsFilter />
     </div>
   );

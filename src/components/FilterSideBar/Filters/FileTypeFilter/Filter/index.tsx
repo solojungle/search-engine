@@ -9,23 +9,23 @@ import { type SearchCounts } from "components/types";
 import { Item } from "./item";
 
 type FilterItemProps = {
-  counts: SearchCounts;
+  types: SearchCounts["types"];
 };
 
 export const Filter = (props: FilterItemProps) => {
-  const { counts } = props;
+  const { types } = props;
 
   return (
     <>
-      <Item Icon={Squares2X2Icon} title="Everything" count={counts.types.all} />
-      <Item Icon={FilmIcon} title="Videos" count={counts.types.video} />
-      <Item Icon={GifIcon} title="GIFs" count={counts.types.gifs} />
+      <Item Icon={Squares2X2Icon} title="Everything" count={types.all} />
+      <Item Icon={FilmIcon} title="Videos" count={types.video} />
+      <Item Icon={GifIcon} title="GIFs" count={types.gifs} />
       <Item
         Icon={DocumentTextIcon}
         title="Transcripts"
-        count={counts.types.transcripts}
+        count={types.transcripts}
       />
-      <Item Icon={PhotoIcon} title="Images" count={counts.types.images} />
+      <Item Icon={PhotoIcon} title="Images" count={types.images} />
     </>
   );
 };
