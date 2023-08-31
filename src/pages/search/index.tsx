@@ -11,19 +11,21 @@ import { useEffect, useState, type SetStateAction } from "react";
 
 const Search: NextPage = () => {
   const router = useRouter();
-  const { q } = router.query;
+  const { q, page } = router.query;
 
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState<SearchData>();
-  const [currentPage, setCurrentPage] = useState(1);
   const [responseTime, setResponseTime] = useState<string>("");
 
   const perPage = 15;
-  const totalResults = data?.counts?.types.all || 0;
+  const totalResults = data?.counts?.types.all ?? 0;
+
+  const [currentPage, setCurrentPage] = useState<number>(
+    parseInt(page as string)
+  );
 
   const handlePageChange = (page: SetStateAction<number>) => {
     setCurrentPage(page);
-    // You can implement fetching data for the new page here
   };
 
   useEffect(() => {
@@ -84,6 +86,38 @@ const Search: NextPage = () => {
       </div>
     </>
   );
+};
+
+/**
+ * Before rendering page, check if the search query exists, redirect to the search page if not
+ */
+export const getServerSideProps = async (ctx: any) => {
+  // Destructure query parameter
+  const { q, page } = ctx.query;
+
+  // If 'q' parameter is missing, redirect to the root page
+  if (!q) {
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false,
+      },
+    };
+  }
+
+  // Check if 'page' query parameter exists, or is not valid, if not, set it to 1
+  if (!page || isNaN(page) || parseInt(page as string) < 1) {
+    return {
+      redirect: {
+        destination: `/search?q=${q}&page=1`,
+        permanent: false,
+      },
+    };
+  }
+
+  return {
+    props: {},
+  };
 };
 
 export default Search;
