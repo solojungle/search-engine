@@ -19,6 +19,7 @@ const Search: NextPage = () => {
 
   const perPage = 15;
   const totalResults = data?.counts?.types.all ?? 0;
+  const totalPages = Math.max(1, Math.ceil(totalResults / perPage));
 
   const [currentPage, setCurrentPage] = useState<number>(
     parseInt(page as string)
@@ -26,8 +27,37 @@ const Search: NextPage = () => {
 
   const handlePageChange = (page: SetStateAction<number>) => {
     setCurrentPage(page);
+
+    // Replace history with new page
+    router.replace({
+      pathname: router.pathname,
+      query: {
+        q,
+        page: page.toString(),
+      },
+    });
   };
 
+  // Prevent 'page' from being too large
+  useEffect(() => {
+    if (!data) {
+      return;
+    }
+
+    if (currentPage > totalPages) {
+      setCurrentPage(totalPages);
+
+      router.replace({
+        pathname: router.pathname,
+        query: {
+          q,
+          page: totalPages.toString(),
+        },
+      });
+    }
+  });
+
+  // Get search results, and returns response time
   useEffect(() => {
     if (q) {
       const startTime = performance.now();
