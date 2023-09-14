@@ -1,10 +1,11 @@
-import { type SearchCounts } from "components/types";
-import { Filter } from "./Filter";
-import { Skeleton } from "./Skeleton";
+import { type SearchCounts } from 'components/types';
+
+import { Filter } from './Filter';
+import { Skeleton } from './Skeleton';
 
 type FileTypeFilterProps = {
   loading: boolean;
-  types?: SearchCounts["types"];
+  types?: SearchCounts['types'];
 };
 
 export const FileTypeFilter = (props: FileTypeFilterProps) => {

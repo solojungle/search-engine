@@ -4,17 +4,21 @@ export type SearchData = {
 };
 
 export type SearchResults = {
+  id: string;
   title: string;
   description: string;
   thumbnail: string;
   author: string;
   duration: string;
+  views: string;
   type: string;
+  isNSFW: boolean;
   url: string;
   source: string;
   transcript: string;
   tags: string[];
   uploaded: string;
+  createdAt: string;
 };
 
 export type SearchCounts = {

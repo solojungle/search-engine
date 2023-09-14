@@ -1,11 +1,11 @@
-import { type SearchCounts } from "components/types";
+import { type SearchCounts } from 'components/types';
 
-import { Filter } from "./Filter";
-import { Skeleton } from "./Skeleton";
+import { Filter } from './Filter';
+import { Skeleton } from './Skeleton';
 
 type FileTypeFilterProps = {
   loading: boolean;
-  sites?: SearchCounts["sites"];
+  sites?: SearchCounts['sites'];
 };
 
 export const WebsiteFilter = (props: FileTypeFilterProps) => {

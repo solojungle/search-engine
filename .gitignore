@@ -17,6 +17,12 @@
 /out/
 next-env.d.ts
 
+# vscode
+.vscode/
+
+# npm
+package-lock.json
+
 # production
 /build
 

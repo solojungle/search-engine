@@ -4,8 +4,9 @@ import {
   GifIcon,
   PhotoIcon,
   Squares2X2Icon,
-} from "@heroicons/react/24/outline";
-import { Item } from "./item";
+} from '@heroicons/react/24/outline';
+
+import { Item } from './item';
 
 export const Skeleton = () => {
   return (

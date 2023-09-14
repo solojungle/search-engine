@@ -1,13 +1,13 @@
-import { searchVideos } from "components/api/search";
-import { FilterByBar } from "components/components/FilterSideBar";
-import { Heading } from "components/components/Heading";
-import { Pagination } from "components/components/Pagination";
-import { Results } from "components/components/Results";
-import { SearchWithButton } from "components/components/Search/SearchWithButton";
-import { SearchData } from "components/types";
-import { type NextPage } from "next";
-import { useRouter } from "next/router";
-import { useEffect, useState, type SetStateAction } from "react";
+import { searchVideos } from 'components/api/search';
+import { FilterByBar } from 'components/components/FilterSideBar';
+import { Heading } from 'components/components/Heading';
+import { Pagination } from 'components/components/Pagination';
+import { Results } from 'components/components/Results';
+import { SearchWithButton } from 'components/components/Search/SearchWithButton';
+import { SearchData } from 'components/types';
+import { type NextPage } from 'next';
+import { useRouter } from 'next/router';
+import { type SetStateAction, useEffect, useState } from 'react';
 
 const Search: NextPage = () => {
   const router = useRouter();
@@ -15,25 +15,25 @@ const Search: NextPage = () => {
 
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState<SearchData>();
-  const [responseTime, setResponseTime] = useState<string>("");
+  const [responseTime, setResponseTime] = useState<string>('');
 
   const perPage = 15;
   const totalResults = data?.counts?.types.all ?? 0;
   const totalPages = Math.max(1, Math.ceil(totalResults / perPage));
 
   const [currentPage, setCurrentPage] = useState<number>(
-    parseInt(page as string)
+    parseInt(page as string, 10),
   );
 
-  const handlePageChange = (page: SetStateAction<number>) => {
-    setCurrentPage(page);
+  const handlePageChange = (p: SetStateAction<number>) => {
+    setCurrentPage(p);
 
     // Replace history with new page
     router.replace({
       pathname: router.pathname,
       query: {
         q,
-        page: page.toString(),
+        page: p.toString(),
       },
     });
   };
@@ -55,16 +55,16 @@ const Search: NextPage = () => {
         },
       });
     }
-  });
+  }, [data, currentPage, totalPages, router, q]);
 
   // Get search results, and returns response time
   useEffect(() => {
     if (q) {
       const startTime = performance.now();
-      // setLoading(true);
+      setLoading(true);
       searchVideos(q as string).then((res) => {
         setData(res);
-        // setLoading(false);
+        setLoading(false);
       });
 
       const endTime = performance.now();
@@ -77,12 +77,12 @@ const Search: NextPage = () => {
   const qString = Array.isArray(q) ? q[0] : q;
   const truncatedQ =
     qString && qString.toString().length > 20
-      ? qString.toString().substring(0, 20) + "..."
+      ? `${qString.toString().substring(0, 20)}...`
       : qString;
 
   const headTitleWithSiteName = truncatedQ
     ? `${truncatedQ} | aliawari.com`
-    : "aliawari.com";
+    : 'aliawari.com';
 
   return (
     <>
@@ -129,14 +129,14 @@ export const getServerSideProps = async (ctx: any) => {
   if (!q) {
     return {
       redirect: {
-        destination: "/",
+        destination: '/',
         permanent: false,
       },
     };
   }
 
   // Check if 'page' query parameter exists, or is not valid, if not, set it to 1
-  if (!page || isNaN(page) || parseInt(page as string) < 1) {
+  if (!page || Number.isNaN(page) || parseInt(page as string, 10) < 1) {
     return {
       redirect: {
         destination: `/search?q=${q}&page=1`,

@@ -1,11 +1,11 @@
-import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
+import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
 import {
+  type HTMLProps,
   useCallback,
   useEffect,
   useRef,
   useState,
-  type HTMLProps,
-} from "react";
+} from 'react';
 
 type SearchBarProps = {
   searchTerm: string;
@@ -13,7 +13,7 @@ type SearchBarProps = {
 };
 
 export const SearchBar = ({
-  searchTerm = "",
+  searchTerm = '',
   setSearchTerm,
   ...props
 }: SearchBarProps & HTMLProps<HTMLInputElement>) => {
@@ -24,26 +24,26 @@ export const SearchBar = ({
     (event: { keyCode: number }) => {
       if (event.keyCode === 27) {
         if (searchTerm.length > 0) {
-          setSearchTerm("");
+          setSearchTerm('');
           setIsFocused(true);
           inputReference.current?.focus();
         }
       }
     },
-    [searchTerm.length, setSearchTerm]
+    [searchTerm.length, setSearchTerm],
   );
 
   useEffect(() => {
-    document.addEventListener("keydown", escFunction);
+    document.addEventListener('keydown', escFunction);
     return () => {
-      document.removeEventListener("keydown", escFunction);
+      document.removeEventListener('keydown', escFunction);
     };
   }, [escFunction]);
 
   // If the search bar is not selected pressing "/" will focus the search bar
   const slashFunction = useCallback(
     (event: KeyboardEvent) => {
-      if (event.key === "/") {
+      if (event.key === '/') {
         if (!isFocused) {
           event.preventDefault(); // Prevent the "/" character from being added
           setIsFocused(true);
@@ -51,13 +51,13 @@ export const SearchBar = ({
         }
       }
     },
-    [isFocused]
+    [isFocused],
   );
 
   useEffect(() => {
-    document.addEventListener("keydown", slashFunction);
+    document.addEventListener('keydown', slashFunction);
     return () => {
-      document.removeEventListener("keydown", slashFunction);
+      document.removeEventListener('keydown', slashFunction);
     };
   }, [slashFunction]);
 
@@ -74,7 +74,7 @@ export const SearchBar = ({
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
         {...props}
-      ></input>
+      />
     </div>
   );
 };

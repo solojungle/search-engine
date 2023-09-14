@@ -1,8 +1,9 @@
-import { type SearchCounts } from "components/types";
-import { Item } from "./item";
+import { type SearchCounts } from 'components/types';
+
+import { Item } from './item';
 
 type FilterItemProps = {
-  sites: SearchCounts["sites"];
+  sites: SearchCounts['sites'];
 };
 
 export const Filter = (props: FilterItemProps) => {

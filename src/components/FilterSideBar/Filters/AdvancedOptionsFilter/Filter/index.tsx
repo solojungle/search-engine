@@ -1,5 +1,6 @@
-import { PlusCircleIcon } from "@heroicons/react/24/outline";
-import { Item } from "./item";
+import { PlusCircleIcon } from '@heroicons/react/24/outline';
+
+import { Item } from './item';
 
 export const Filter = () => {
   return (

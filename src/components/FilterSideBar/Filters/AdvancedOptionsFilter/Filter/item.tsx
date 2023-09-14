@@ -1,6 +1,6 @@
 type FilterItemProps = {
   Icon: React.ForwardRefExoticComponent<
-    Omit<React.SVGProps<SVGSVGElement>, "ref"> & { title?: string | undefined }
+    Omit<React.SVGProps<SVGSVGElement>, 'ref'> & { title?: string | undefined }
   >;
   title: string;
 };

@@ -4,12 +4,13 @@ import {
   GifIcon,
   PhotoIcon,
   Squares2X2Icon,
-} from "@heroicons/react/24/outline";
-import { type SearchCounts } from "components/types";
-import { Item } from "./item";
+} from '@heroicons/react/24/outline';
+import { type SearchCounts } from 'components/types';
+
+import { Item } from './item';
 
 type FilterItemProps = {
-  types: SearchCounts["types"];
+  types: SearchCounts['types'];
 };
 
 export const Filter = (props: FilterItemProps) => {

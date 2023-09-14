@@ -1,6 +1,7 @@
-import { SearchData } from "components/types";
-import { Skeleton } from "./Skeleton";
-import { VideoResults } from "./Video";
+import { SearchData } from 'components/types';
+
+import { Skeleton } from './Skeleton';
+import { VideoResults } from './Video';
 
 type ResultsProps = {
   loading: boolean;

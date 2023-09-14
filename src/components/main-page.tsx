@@ -1,6 +1,7 @@
-import { type NextPage } from "next";
-import { FloatingBanner } from "./FloatingBanner";
-import { SearchWithButton } from "./Search/SearchWithButton";
+import { type NextPage } from 'next';
+
+import { FloatingBanner } from './FloatingBanner';
+import { SearchWithButton } from './Search/SearchWithButton';
 
 export const Home: NextPage = () => {
   return (

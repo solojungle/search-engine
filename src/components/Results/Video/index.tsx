@@ -1,5 +1,6 @@
-import { type SearchCounts, type SearchResults } from "components/types";
-import { Item } from "./item";
+import { type SearchCounts, type SearchResults } from 'components/types';
+
+import { Item } from './item';
 
 type VideoResultsProps = {
   results: SearchResults[];
@@ -14,7 +15,7 @@ export const VideoResults = (props: VideoResultsProps) => {
 
   const paginatedResults = results.slice(
     (currentPage - 1) * perPage,
-    currentPage * perPage
+    currentPage * perPage,
   );
 
   return (
@@ -24,10 +25,10 @@ export const VideoResults = (props: VideoResultsProps) => {
         <span className="ml-2 text-xs text-neutral-600">{`(${responseTime}) ms`}</span>
       </div>
       <div className="grid grid-cols-1 gap-2 pt-2 sm:grid-cols-2 lg:grid-cols-3 lg:gap-4">
-        {paginatedResults.map((result, index) => {
+        {paginatedResults.map((result) => {
           return (
             <Item
-              key={`${result.title}-${index}`}
+              key={result.id}
               title={result.title}
               description={result.description}
               url={result.url}

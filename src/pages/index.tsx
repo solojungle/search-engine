@@ -1,7 +1,6 @@
-import { type NextPage } from "next";
-
-import { Heading } from "components/components/Heading";
-import { Home } from "components/components/main-page";
+import { Heading } from 'components/components/Heading';
+import { Home } from 'components/components/main-page';
+import { type NextPage } from 'next';
 
 const Entry: NextPage = () => {
   return (
