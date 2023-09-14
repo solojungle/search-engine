@@ -51,5 +51,6 @@ module.exports = {
     "webpack.config.js",
     "build/",
     "node_modules/",
+    ".vscode/"
   ],
 };
