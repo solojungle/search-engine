@@ -4,6 +4,7 @@ import { Heading } from 'components/components/Heading';
 import { Pagination } from 'components/components/Pagination';
 import { Results } from 'components/components/Results';
 import { SearchWithButton } from 'components/components/Search/SearchWithButton';
+import { SiteTitleWithSearchQuery } from 'components/components/Search/SiteTitleWithQuery';
 import { SearchData } from 'components/types';
 import { type NextPage } from 'next';
 import { useRouter } from 'next/router';
@@ -74,15 +75,7 @@ const Search: NextPage = () => {
     }
   }, [q]);
 
-  const qString = Array.isArray(q) ? q[0] : q;
-  const truncatedQ =
-    qString && qString.toString().length > 20
-      ? `${qString.toString().substring(0, 20)}...`
-      : qString;
-
-  const headTitleWithSiteName = truncatedQ
-    ? `${truncatedQ} | aliawari.com`
-    : 'aliawari.com';
+  const headTitleWithSiteName = SiteTitleWithSearchQuery(q);
 
   return (
     <>
