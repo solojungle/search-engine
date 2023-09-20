@@ -1,3 +1,4 @@
+import { handleSelectItem } from '../../FilterFunctions';
 import { ResolvedCount } from '../../ResolvedCount';
 
 type ItemProps = {
@@ -16,7 +17,12 @@ export const Item = (props: ItemProps) => {
       <button
         type="button"
         onClick={() => {
-          setSelectedWebsite(title.toLowerCase());
+          handleSelectItem({
+            defaultValue: '',
+            selected,
+            title: title.toLowerCase(),
+            setValue: setSelectedWebsite,
+          });
         }}
         className={`${
           selected && 'bg-neutral-200'

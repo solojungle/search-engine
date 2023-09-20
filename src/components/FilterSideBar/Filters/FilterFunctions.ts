@@ -11,3 +11,24 @@ export function isSelected({
 
   return false;
 }
+
+type HandleSelectItemProps = {
+  defaultValue?: string;
+  selected: boolean;
+  title: string;
+  setValue: React.Dispatch<React.SetStateAction<any>>;
+};
+
+export function handleSelectItem({
+  defaultValue,
+  selected,
+  title,
+  setValue,
+}: HandleSelectItemProps) {
+  if (selected && defaultValue !== undefined) {
+    setValue(defaultValue);
+    return;
+  }
+
+  setValue(title);
+}
