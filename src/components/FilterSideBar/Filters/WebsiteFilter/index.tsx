@@ -3,13 +3,15 @@ import { type SearchCounts } from 'components/types';
 import { Filter } from './Filter';
 import { Skeleton } from './Skeleton';
 
-type FileTypeFilterProps = {
+type WebsiteFilterProps = {
   loading: boolean;
+  selectedWebsite: string;
+  setSelectedWebsite: React.Dispatch<React.SetStateAction<any>>;
   sites?: SearchCounts['sites'];
 };
 
-export const WebsiteFilter = (props: FileTypeFilterProps) => {
-  const { loading, sites } = props;
+export const WebsiteFilter = (props: WebsiteFilterProps) => {
+  const { loading, sites, selectedWebsite, setSelectedWebsite } = props;
 
   return (
     <>
@@ -17,7 +19,15 @@ export const WebsiteFilter = (props: FileTypeFilterProps) => {
         Websites
       </h2>
       <ol className="mb-5 border-b border-borderColor pb-6">
-        {loading || !sites ? <Skeleton /> : <Filter sites={sites} />}
+        {loading || !sites ? (
+          <Skeleton />
+        ) : (
+          <Filter
+            sites={sites}
+            selectedWebsite={selectedWebsite}
+            setSelectedWebsite={setSelectedWebsite}
+          />
+        )}
       </ol>
     </>
   );

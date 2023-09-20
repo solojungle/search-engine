@@ -18,6 +18,11 @@ const Search: NextPage = () => {
   const [data, setData] = useState<SearchData>();
   const [responseTime, setResponseTime] = useState<string>('');
 
+  // Filter control
+  const [selectedFileType, setSelectedFileType] =
+    useState<string>('everything');
+  const [selectedWebsite, setSelectedWebsite] = useState<string>('');
+
   const perPage = 15;
   const totalResults = data?.counts?.types.all ?? 0;
   const totalPages = Math.max(1, Math.ceil(totalResults / perPage));
@@ -88,7 +93,14 @@ const Search: NextPage = () => {
           <SearchWithButton query={q as string} />
         </div>
         <div className="flex border-t border-neutral-200">
-          <FilterByBar counts={data?.counts} loading={loading} />
+          <FilterByBar
+            counts={data?.counts}
+            loading={loading}
+            selectedFileType={selectedFileType}
+            selectedWebsite={selectedWebsite}
+            setSelectedFileType={setSelectedFileType}
+            setSelectedWebsite={setSelectedWebsite}
+          />
           <div className="flex w-full flex-col">
             <Results
               loading={loading}
