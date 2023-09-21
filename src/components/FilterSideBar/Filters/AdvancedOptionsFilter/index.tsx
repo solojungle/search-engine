@@ -1,5 +1,3 @@
-import { Filter } from './Filter';
-
 export const AdvancedOptionsFilter = () => {
   return (
     <>
@@ -7,7 +5,8 @@ export const AdvancedOptionsFilter = () => {
         Advanced
       </h2>
       <ol className="mb-5 ">
-        <Filter />
+        {/* <Filter /> */}
+        <p className="pl-2 text-sm text-neutral-500">Coming soon...</p>
       </ol>
     </>
   );
