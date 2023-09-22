@@ -1,9 +1,9 @@
 export type SearchData = {
-  results: SearchResults[];
+  results: SearchResult[];
   counts: SearchCounts;
 };
 
-export type SearchResults = {
+export type SearchResult = {
   id: string;
   title: string;
   description: string;
@@ -14,7 +14,9 @@ export type SearchResults = {
   type: string;
   isNSFW: boolean;
   url: string;
-  source: string;
+  source: {
+    name: string;
+  };
   transcript: string;
   tags: string[];
   uploaded: string;

@@ -1,19 +1,37 @@
-import { type SearchCounts, type SearchResults } from 'components/types';
+import { type SearchCounts, type SearchResult } from 'components/types';
 
 import { Item } from './item';
 
 type VideoResultsProps = {
-  results: SearchResults[];
+  results: SearchResult[];
   counts: SearchCounts;
   responseTime: string;
   currentPage: number;
   perPage: number;
+  selectedFileType: string;
+  selectedWebsite: string;
 };
 
 export const VideoResults = (props: VideoResultsProps) => {
-  const { results, counts, responseTime, perPage, currentPage } = props;
+  const {
+    results,
+    counts,
+    responseTime,
+    perPage,
+    currentPage,
+    selectedFileType,
+    selectedWebsite,
+  } = props;
 
-  const paginatedResults = results.slice(
+  // Filter results by file type and website
+  const filteredResults = results.filter((e) => {
+    return (
+      (selectedFileType === 'everything' || e.type === selectedFileType) &&
+      (selectedWebsite === '' || e.source.name === selectedWebsite)
+    );
+  });
+
+  const paginatedResults = filteredResults.slice(
     (currentPage - 1) * perPage,
     currentPage * perPage,
   );

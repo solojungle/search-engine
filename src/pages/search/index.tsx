@@ -103,6 +103,8 @@ const Search: NextPage = () => {
           />
           <div className="flex w-full flex-col">
             <Results
+              selectedFileType={selectedFileType}
+              selectedWebsite={selectedWebsite}
               loading={loading}
               responseTime={responseTime}
               data={data}

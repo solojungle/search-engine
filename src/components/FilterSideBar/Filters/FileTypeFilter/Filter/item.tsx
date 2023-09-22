@@ -8,11 +8,12 @@ type FilterItemProps = {
   title: string;
   count: number;
   selected: boolean;
+  filterBy: string;
   setSelectedFileType: React.Dispatch<React.SetStateAction<any>>;
 };
 
 export const Item = (props: FilterItemProps) => {
-  const { Icon, title, count, selected, setSelectedFileType } = props;
+  const { Icon, title, count, selected, setSelectedFileType, filterBy } = props;
 
   return (
     <li className="group">
@@ -21,7 +22,7 @@ export const Item = (props: FilterItemProps) => {
         onClick={() => {
           handleSelectItem({
             selected,
-            title: title.toLowerCase(),
+            value: filterBy,
             setValue: setSelectedFileType,
           });
         }}

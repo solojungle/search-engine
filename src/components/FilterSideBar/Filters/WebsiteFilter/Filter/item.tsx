@@ -20,7 +20,7 @@ export const Item = (props: ItemProps) => {
           handleSelectItem({
             defaultValue: '',
             selected,
-            title: title.toLowerCase(),
+            value: title.toLowerCase(),
             setValue: setSelectedWebsite,
           });
         }}

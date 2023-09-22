@@ -9,10 +9,20 @@ type ResultsProps = {
   data?: SearchData;
   currentPage: number;
   perPage: number;
+  selectedFileType: string;
+  selectedWebsite: string;
 };
 
 export const Results = (props: ResultsProps) => {
-  const { data, responseTime, loading, currentPage, perPage } = props;
+  const {
+    data,
+    responseTime,
+    loading,
+    currentPage,
+    perPage,
+    selectedFileType,
+    selectedWebsite,
+  } = props;
 
   if (data?.results && data.results.length === 0) {
     return (
@@ -39,6 +49,8 @@ export const Results = (props: ResultsProps) => {
           responseTime={responseTime}
           currentPage={currentPage}
           perPage={perPage}
+          selectedFileType={selectedFileType}
+          selectedWebsite={selectedWebsite}
         />
       )}
     </div>

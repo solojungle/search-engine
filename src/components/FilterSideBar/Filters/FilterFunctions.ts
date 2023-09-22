@@ -15,14 +15,14 @@ export function isSelected({
 type HandleSelectItemProps = {
   defaultValue?: string;
   selected: boolean;
-  title: string;
+  value: string;
   setValue: React.Dispatch<React.SetStateAction<any>>;
 };
 
 export function handleSelectItem({
   defaultValue,
   selected,
-  title,
+  value,
   setValue,
 }: HandleSelectItemProps) {
   if (selected && defaultValue !== undefined) {
@@ -30,5 +30,5 @@ export function handleSelectItem({
     return;
   }
 
-  setValue(title);
+  setValue(value);
 }

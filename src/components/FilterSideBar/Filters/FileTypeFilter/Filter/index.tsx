@@ -25,6 +25,7 @@ export const Filter = (props: FilterItemProps) => {
         Icon={Squares2X2Icon}
         title="Everything"
         count={types.all}
+        filterBy="everything"
         selected={isSelected({
           valueToCheck: 'everything',
           selectedValue: selectedFileType,
@@ -35,8 +36,9 @@ export const Filter = (props: FilterItemProps) => {
         Icon={FilmIcon}
         title="Videos"
         count={types.video}
+        filterBy="video"
         selected={isSelected({
-          valueToCheck: 'videos',
+          valueToCheck: 'video',
           selectedValue: selectedFileType,
         })}
         setSelectedFileType={setSelectedFileType}
@@ -45,8 +47,9 @@ export const Filter = (props: FilterItemProps) => {
         Icon={GifIcon}
         title="GIFs"
         count={types.gifs}
+        filterBy="gif"
         selected={isSelected({
-          valueToCheck: 'gifs',
+          valueToCheck: 'gif',
           selectedValue: selectedFileType,
         })}
         setSelectedFileType={setSelectedFileType}
@@ -55,8 +58,9 @@ export const Filter = (props: FilterItemProps) => {
         Icon={DocumentTextIcon}
         title="Transcripts"
         count={types.transcripts}
+        filterBy="transcript"
         selected={isSelected({
-          valueToCheck: 'transcripts',
+          valueToCheck: 'transcript',
           selectedValue: selectedFileType,
         })}
         setSelectedFileType={setSelectedFileType}
@@ -65,8 +69,9 @@ export const Filter = (props: FilterItemProps) => {
         Icon={PhotoIcon}
         title="Images"
         count={types.images}
+        filterBy="image"
         selected={isSelected({
-          valueToCheck: 'images',
+          valueToCheck: 'image',
           selectedValue: selectedFileType,
         })}
         setSelectedFileType={setSelectedFileType}
