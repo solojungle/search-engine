@@ -85,14 +85,14 @@ const Search: NextPage = () => {
   return (
     <>
       <Heading title={headTitleWithSiteName} />
-      <div className="p-5">
+      <div className="flex min-h-screen flex-col p-5">
         <div className="mb-5 flex w-full items-center">
           <a className="ml-2 mr-8 font-bold" href="https://aliawari.com">
             aliawari.com
           </a>
           <SearchWithButton query={q as string} />
         </div>
-        <div className="flex border-t border-neutral-200">
+        <div className="flex grow border-t border-neutral-200">
           <FilterByBar
             counts={data?.counts}
             loading={loading}
