@@ -1,3 +1,4 @@
+import { NoResults } from 'components/components/NoResults';
 import { type SearchCounts, type SearchResult } from 'components/types';
 
 import { Item } from './item';
@@ -35,6 +36,14 @@ export const VideoResults = (props: VideoResultsProps) => {
     (currentPage - 1) * perPage,
     currentPage * perPage,
   );
+
+  if (paginatedResults.length === 0) {
+    return (
+      <div className="mt-5 flex h-full items-center justify-center">
+        <NoResults />
+      </div>
+    );
+  }
 
   return (
     <>
