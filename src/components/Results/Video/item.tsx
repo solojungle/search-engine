@@ -10,7 +10,7 @@ export const Item = (props: ResultProps) => {
 
   return (
     <div className="flex flex-col gap-4">
-      <div className="relative h-56 w-full overflow-hidden rounded-md">
+      <div className="relative h-52 w-full overflow-hidden rounded-md">
         <a href={url} className="">
           <img
             className="absolute h-full w-full object-cover"
@@ -20,10 +20,14 @@ export const Item = (props: ResultProps) => {
         </a>
       </div>
       <div className="flex flex-col gap-1">
-        <a className="text-lg font-bold" href={url}>
+        <a
+          title={title}
+          className="line-clamp-1 text-ellipsis text-lg font-semibold"
+          href={url}
+        >
           {title}
         </a>
-        <p className="text-sm">{description}</p>
+        <p className="text-sm text-neutral-600">{description}</p>
       </div>
     </div>
   );
