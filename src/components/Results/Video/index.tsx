@@ -51,7 +51,7 @@ export const VideoResults = (props: VideoResultsProps) => {
         <h2 className="font-semibold">{`${counts.types.all} files`}</h2>
         <span className="ml-2 text-xs text-neutral-600">{`(${responseTime}) ms`}</span>
       </div>
-      <div className="grid grid-cols-1 gap-2 pt-2 sm:grid-cols-2 lg:grid-cols-3 lg:gap-4">
+      <div className="grid grid-cols-1 gap-2 pt-2 sm:grid-cols-2 lg:gap-4 xl:grid-cols-3">
         {paginatedResults.map((result) => {
           return (
             <Item

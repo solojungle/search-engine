@@ -10,10 +10,10 @@ export const Item = (props: ResultProps) => {
 
   return (
     <div className="flex flex-col gap-4">
-      <div className="relative h-52 w-full overflow-hidden rounded-md">
+      <div className="relative aspect-video overflow-hidden rounded-md">
         <a href={url} className="">
           <img
-            className="absolute h-full w-full object-cover"
+            className="h-full w-full object-cover"
             src={thumbnail}
             alt={title}
           />
