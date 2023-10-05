@@ -17,12 +17,7 @@ export const SearchWithButton = (props: SearchWithButtonProps) => {
       return;
     }
 
-    try {
-      await router.push(`/search?q=${encodeURIComponent(searchQuery)}`);
-    } catch (error) {
-      // Handle the error here if needed
-      console.error('An error occurred:', error);
-    }
+    await router.push(`/search?q=${encodeURIComponent(searchQuery)}`);
   }
 
   return (
@@ -38,7 +33,7 @@ export const SearchWithButton = (props: SearchWithButtonProps) => {
       />
       <button
         type="submit"
-        className="focus:shadow-outline h-10 rounded-md rounded-l-none bg-primary px-4 py-2 text-xs font-semibold uppercase text-textInverse hover:bg-primaryLowlight focus:outline-none"
+        className="h-10 rounded-md rounded-l-none bg-primary px-4 py-2 text-xs font-semibold uppercase text-textInverse hover:bg-primaryLowlight focus:outline-none"
         onClick={handleSearch}
       >
         Search
