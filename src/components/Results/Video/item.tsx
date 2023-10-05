@@ -27,7 +27,12 @@ export const Item = (props: ResultProps) => {
         >
           {title}
         </a>
-        <p className="text-sm text-neutral-600">{description}</p>
+        <p
+          title={description}
+          className="line-clamp-4 text-ellipsis break-words text-sm text-neutral-600"
+        >
+          {description}
+        </p>
       </div>
     </div>
   );
