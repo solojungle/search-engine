@@ -10,8 +10,8 @@ export const Item = (props: ItemProps) => {
 
   return (
     <li className="group">
-      <a className="flex items-center rounded-md p-2 hover:bg-neutral-200">
-        <Icon className="h-5 w-5 text-black" />
+      <a className="flex items-center rounded-md p-2 ">
+        <Icon className="h-5 w-5 text-black dark:text-white" />
         <div className="flex w-full items-center justify-between">
           <p className="ml-3 text-sm">{title}</p>
           <div
@@ -22,17 +22,9 @@ export const Item = (props: ItemProps) => {
               flex-col
               items-start
               justify-center
-              overflow-hidden
-              before:absolute
-              before:inset-0
-              before:-translate-x-full
-              before:animate-[shimmer_2s_infinite]
-              before:bg-gradient-to-r
-              before:from-transparent
-              before:via-gray-100/50
-              before:to-transparent"
+              overflow-hidden"
           >
-            <span className="h-5 w-5 rounded-xl bg-neutral-200 group-hover:bg-neutral-300" />
+            <span className="h-5 w-5 rounded-xl bg-neutral-200  dark:bg-neutral-500" />
           </div>
         </div>
       </a>

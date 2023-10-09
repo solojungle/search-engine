@@ -15,13 +15,13 @@ export const Item = () => {
         before:animate-[shimmer_2s_infinite]
         before:bg-gradient-to-r
         before:from-transparent
-        before:via-gray-100/50
+        before:via-slate-100/10
         before:to-transparent"
     >
-      <div className="mb-4 h-56 w-full rounded-md bg-neutral-200" />
-      <div className="mb-2 h-4 w-2/3 rounded-md bg-neutral-200" />
-      <div className="mb-2 h-4 w-3/4 rounded-md bg-neutral-200" />
-      <div className="mb-2 h-4 w-3/4 rounded-md bg-neutral-200" />
+      <div className="mb-4 h-56 w-full rounded-md bg-neutral-200 dark:bg-neutral-700" />
+      <div className="mb-2 h-4 w-2/3 rounded-md bg-neutral-200 dark:bg-neutral-700" />
+      <div className="mb-2 h-4 w-3/4 rounded-md bg-neutral-200 dark:bg-neutral-700" />
+      <div className="mb-2 h-4 w-3/4 rounded-md bg-neutral-200 dark:bg-neutral-700" />
     </div>
   );
 };
