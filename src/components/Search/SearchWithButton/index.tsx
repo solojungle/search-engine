@@ -33,7 +33,7 @@ export const SearchWithButton = (props: SearchWithButtonProps) => {
       />
       <button
         type="submit"
-        className="h-10 rounded-md rounded-l-none bg-primary px-4 py-2 text-xs font-semibold uppercase text-textInverse hover:bg-primaryLowlight focus:outline-none"
+        className="h-10 rounded-md rounded-l-none bg-primary px-4 py-2 text-xs font-semibold uppercase text-textInverse hover:bg-primaryLowlight focus:outline-none dark:bg-primaryLowlight"
         onClick={handleSearch}
       >
         Search

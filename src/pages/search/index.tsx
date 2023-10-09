@@ -92,7 +92,7 @@ const Search: NextPage = () => {
           </a>
           <SearchWithButton query={q as string} />
         </div>
-        <div className="flex grow border-t border-neutral-200">
+        <div className="flex grow border-t border-borderColor dark:border-darkBorderColor">
           <FilterByBar
             counts={data?.counts}
             loading={loading}

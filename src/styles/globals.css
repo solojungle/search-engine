@@ -4,7 +4,22 @@
 
 html {
   background-color: theme("colors.offwhite");
+  @media (prefers-color-scheme: dark) {
+    background-color: #1c1c1e;
+    color: white;
+  }
 }
+a {
+  @media (prefers-color-scheme: dark) {
+    color: white;
+  }
+}
+::selection {
+  background-color: #e92120;
+  color: white;
+}
+
+
 
 @layer components {
   .keybinding {

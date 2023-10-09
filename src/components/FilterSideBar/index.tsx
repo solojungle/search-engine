@@ -29,7 +29,7 @@ export const FilterByBar = (props: FilterByBarProps) => {
   return (
     <div
       ref={filterBarRef}
-      className=" mr-5 hidden h-full w-72 shrink-0 border-r border-borderColor pr-2 pt-5 lg:block"
+      className=" mr-5 hidden h-full w-72 shrink-0 border-r border-borderColor pr-2 pt-5 dark:border-darkBorderColor lg:block"
     >
       <h2 className="mb-3 px-2 font-medium">Filter By</h2>
       <FileTypeFilter

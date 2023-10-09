@@ -27,10 +27,10 @@ export const Item = (props: FilterItemProps) => {
           });
         }}
         className={`${
-          selected && 'bg-neutral-200'
-        } flex w-full items-center rounded-md p-2 hover:bg-neutral-200`}
+          selected && 'bg-neutral-200 dark:bg-primaryLowlight'
+        } flex w-full items-center rounded-md p-2 hover:bg-neutral-200 dark:hover:bg-primaryHighlight`}
       >
-        <Icon className="h-5 w-5 text-black" />
+        <Icon className="h-5 w-5 text-black dark:text-white" />
         <div className="flex w-full items-center justify-between">
           <p className="ml-3 text-sm">{title}</p>
           <ResolvedCount count={count} selected={selected} />

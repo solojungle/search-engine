@@ -14,7 +14,7 @@ export const FileTypeFilter = (props: FileTypeFilterProps) => {
   const { loading, types, selectedFileType, setSelectedFileType } = props;
 
   return (
-    <ol className="mb-5 border-b border-borderColor pb-6">
+    <ol className="mb-5 border-b border-borderColor pb-6 dark:border-darkBorderColor">
       {loading || !types ? (
         <Skeleton />
       ) : (

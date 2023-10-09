@@ -63,7 +63,7 @@ export const Pagination = (props: PaginationProps) => {
   }
 
   return (
-    <div className="flex items-center justify-between border-t border-borderColor pt-4">
+    <div className="flex items-center justify-between border-t border-borderColor pt-4 dark:border-darkBorderColor">
       <p className="text-sm text-textSecondary">
         Showing <span className="font-medium">{start}</span> to{' '}
         <span className="font-medium">{end}</span> of{' '}

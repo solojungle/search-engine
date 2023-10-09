@@ -25,8 +25,8 @@ export const Item = (props: ItemProps) => {
           });
         }}
         className={`${
-          selected && 'bg-neutral-200'
-        } flex w-full items-center rounded-md p-2 hover:bg-neutral-200`}
+          selected && 'bg-neutral-200 dark:bg-primaryLowlight'
+        } flex w-full items-center rounded-md p-2 hover:bg-neutral-200 dark:hover:bg-primaryHighlight`}
       >
         <img
           className="pointer-events-none select-none"
